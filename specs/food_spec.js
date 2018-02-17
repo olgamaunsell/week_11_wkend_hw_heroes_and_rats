@@ -13,6 +13,10 @@ describe('Food tests', function (){
     assert.strictEqual(cheese.name, "Cheese");
   });
 
+  it("should have a replenishment value", function(){
+    assert.strictEqual(cheese.replenishmentValue, 15);
+  });
+
 })
 
 // Food should have a name
