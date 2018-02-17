@@ -1,5 +1,6 @@
 const assert = require('assert');
 const Hero = require('../hero.js');
+const Task = require('../task.js');
 
 describe('Hero tests', function (){
 
@@ -7,6 +8,7 @@ describe('Hero tests', function (){
 
   beforeEach("setup", function(){
       hero1 = new Hero("Tom", "Cheese");
+      taskEat = new Task("Eat Food", "Easy", "Medium", 100);
   })
 
   it("should have a name", function(){
@@ -37,6 +39,11 @@ describe('Hero tests', function (){
   describe('Task tests', function (){
     it('should have zero tasks at start', function(){
       assert.strictEqual(hero1.tasks.length, 0);
+    });
+
+    it('should have be able to add a task', function(){
+      hero1.addTask(taskEat);
+      assert.strictEqual(hero1.tasks.length, 1);
     });
 
   })
