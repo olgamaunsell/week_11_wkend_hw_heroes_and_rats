@@ -5,7 +5,7 @@ describe('Task tests', function (){
   let task1;
 
   beforeEach("setup", function(){
-      task1 = new Task("Eat", "Easy", "Medium", 10);
+      task1 = new Task("Eat", "Easy", "Medium", 100);
   })
 
   it("should have a description", function(){
@@ -21,7 +21,7 @@ describe('Task tests', function (){
   });
 
   it("should have a reward level", function(){
-    assert.strictEqual(task1.reward, 10);
+    assert.strictEqual(task1.reward, 100);
   });
 
   it("should start as not complete", function(){

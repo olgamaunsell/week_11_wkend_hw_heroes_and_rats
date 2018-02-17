@@ -18,6 +18,3 @@ describe('Food tests', function (){
   });
 
 })
-
-// Food should have a name
-// Food should have a replenishment value

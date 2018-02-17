@@ -34,6 +34,14 @@ describe('Hero tests', function (){
   })
 
 
+  describe('Task tests', function (){
+    it('should have zero tasks at start', function(){
+      assert.strictEqual(hero1.tasks.length, 0);
+    });
+
+  })
+
+
 
 })
 
