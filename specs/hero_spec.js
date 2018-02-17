@@ -38,6 +38,4 @@ describe('Hero tests', function (){
 })
 
 
-
-// A Hero can talk saying their name
 // A Hero has a collection of tasks to complete, which leads nicely to -
