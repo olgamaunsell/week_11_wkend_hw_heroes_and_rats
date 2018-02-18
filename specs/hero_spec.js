@@ -6,14 +6,19 @@ const Food = require('../food.js');
 describe('Hero tests', function (){
 
   let hero1;
+  let foodCheese;
+  let foodFruitNut;
+  let taskHelpLady;
+  let taskFire;
 
   beforeEach("setup", function(){
       hero1 = new Hero("Sir ChocoLot", "Fruit & Nut");
 
       foodCheese = new Food("Cheese", 15);
       foodFruitNut = new Food("Fruit & Nut", 100);
-      taskFire = new Task("Fire Rescue", "Hard", "High", 1000);
-      taskKillRat = new Task("Kill Rat", "Moderate", "Medium", 2000);
+      taskHelpLady = new Task("Help lady cross the road", 1, 10, 500);
+      taskKillRat = new Task("Kill Rat", 2, 30, 1000);
+      taskFire = new Task("Fire Rescue", 3, 20, 2000);
 
   })
 
@@ -59,6 +64,42 @@ describe('Hero tests', function (){
       hero1.removeTask(taskFire);
       assert.strictEqual(hero1.tasks.length, 1);
     });
+
+    it('should be able to sort tasks by difficulty', function(){
+      hero1.addTask(taskKillRat);
+      hero1.addTask(taskFire);
+      hero1.addTask(taskFire);
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskKillRat);
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskKillRat);
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskFire);
+      const actual = hero1.sortTasksByDifficulty();
+      const expected = [taskFire, taskFire, taskFire, taskKillRat, taskKillRat, taskKillRat, taskHelpLady, taskHelpLady, taskHelpLady ]
+      assert.deepStrictEqual(actual, expected);
+    });
+
+    it('should be able to sort tasks by urgency', function(){
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskKillRat);
+      hero1.addTask(taskFire);
+
+      const actual = hero1.sortTasksByUrgency();
+      const expected = [taskKillRat, taskFire, taskHelpLady ]
+      assert.deepStrictEqual(actual, expected);
+    });
+
+    it('should be able to sort tasks by reward', function(){
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskFire);
+      hero1.addTask(taskKillRat);
+
+      const actual = hero1.sortTasksByReward();
+      const expected = [taskFire, taskKillRat,  taskHelpLady ]
+      assert.deepStrictEqual(actual, expected);
+    });
+  
 
     // it("should return error if task to complete is not one of hero's tasks", function(){
     //

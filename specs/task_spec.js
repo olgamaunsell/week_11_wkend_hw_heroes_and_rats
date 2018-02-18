@@ -7,7 +7,7 @@ describe('Task tests', function (){
 
   beforeEach("setup", function(){
       // food1 = new Food("Fruit & Nut", 100);
-      task1 = new Task("Fire Rescue", "Hard", "High", 1000);
+      task1 = new Task("Fire Rescue", 3, 30, 1000);
   })
 
   it("should have a description", function(){
@@ -15,11 +15,11 @@ describe('Task tests', function (){
   });
 
   it("should have a difficulty level", function(){
-    assert.strictEqual(task1.difficulty, "Hard");
+    assert.strictEqual(task1.difficulty, 3);
   });
 
   it("should have a urgency level", function(){
-    assert.strictEqual(task1.urgency, "High");
+    assert.strictEqual(task1.urgency, 30);
   });
 
   it("should have a reward level", function(){
