@@ -1,27 +1,29 @@
 const assert = require('assert');
 const Task = require('../task.js');
+// const Food = require('../food.js');
 
 describe('Task tests', function (){
   let task1;
 
   beforeEach("setup", function(){
-      task1 = new Task("Eat", "Easy", "Medium", 100);
+      // food1 = new Food("Fruit & Nut", 100);
+      task1 = new Task("Fire Rescue", "Hard", "High", 1000);
   })
 
   it("should have a description", function(){
-    assert.strictEqual(task1.description, "Eat");
+    assert.strictEqual(task1.description, "Fire Rescue");
   });
 
   it("should have a difficulty level", function(){
-    assert.strictEqual(task1.difficulty, "Easy");
+    assert.strictEqual(task1.difficulty, "Hard");
   });
 
   it("should have a urgency level", function(){
-    assert.strictEqual(task1.urgency, "Medium");
+    assert.strictEqual(task1.urgency, "High");
   });
 
   it("should have a reward level", function(){
-    assert.strictEqual(task1.reward, 100);
+    assert.deepStrictEqual(task1.reward, 1000);
   });
 
   it("should start as not complete", function(){
@@ -41,5 +43,5 @@ describe('Task tests', function (){
   // Easy, Moderate, Hard
 // A task has an urgency level
   // Low, Medium, High
-// A task has a reward - Numeric
+// A task has a reward - Numeric or Food ?
 // A task should be able to be marked as completed
