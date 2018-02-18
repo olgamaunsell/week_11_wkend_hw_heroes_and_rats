@@ -112,6 +112,17 @@ describe('Hero tests', function (){
       assert.deepStrictEqual(actual, expected);
     });
 
+    it('should be able to view tasks that are marked as incomplete', function(){
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskFire);
+      hero1.addTask(taskKillRat);
+      hero1.completeTask(taskHelpLady);
+
+      const actual = hero1.inCompleteTasks();
+      const expected = [taskFire, taskKillRat]
+      assert.deepStrictEqual(actual, expected);
+    });
+
   });
 
   describe('Eat tests', function (){

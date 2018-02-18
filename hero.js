@@ -64,7 +64,15 @@ Hero.prototype.completeTask = function(taskToComplete){
 Hero.prototype.completedTasks = function(){
 
   return this.tasks.filter(function(task){
-    return task.isComplete === true;
+    return task.isComplete() === true;
+  })
+}
+
+
+Hero.prototype.inCompleteTasks = function(){
+
+  return this.tasks.filter(function(task){
+    return task.isComplete() === false;
   })
 }
 module.exports = Hero;
