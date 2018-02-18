@@ -99,13 +99,18 @@ describe('Hero tests', function (){
       const expected = [taskFire, taskKillRat,  taskHelpLady ]
       assert.deepStrictEqual(actual, expected);
     });
-  
 
-    // it("should return error if task to complete is not one of hero's tasks", function(){
-    //
-    //   const actual = hero1.eatFood(taskEat, foodCheese);
-    //   assert.strictEqual(actual, "Eat Food is not one of Toms outstanding tasks");
-    // });
+
+    it('should be able to view tasks that are marked as complete', function(){
+      hero1.addTask(taskHelpLady);
+      hero1.addTask(taskFire);
+      hero1.addTask(taskKillRat);
+      hero1.completeTask(taskHelpLady);
+
+      const actual = hero1.completedTasks();
+      const expected = [taskHelpLady ]
+      assert.deepStrictEqual(actual, expected);
+    });
 
   });
 
@@ -130,6 +135,4 @@ describe('Hero tests', function (){
 })
 
 
-// A Hero has a collection of tasks to complete, which leads nicely to -
-// A hero should be able to sort their tasks by difficulty, urgency or reward.
 // A hero should be able to view tasks that are marked as completed or incomplete.

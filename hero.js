@@ -47,4 +47,24 @@ Hero.prototype.sortTasksByReward = function(){
     return task2.reward - task1.reward;
   })
 }
+
+Hero.prototype.completeTask = function(taskToComplete){
+  if (!this.tasks.includes(taskToComplete))
+    return task.description + " is not one of " + this.name + "s outstanding tasks";
+
+  this.tasks.forEach(function(task){
+  if(task === taskToComplete){
+    task.setComplete()
+    this.score += task.reward;
+  }
+  }.bind(this));
+}
+
+
+Hero.prototype.completedTasks = function(){
+
+  return this.tasks.filter(function(task){
+    return task.isComplete === true;
+  })
+}
 module.exports = Hero;
